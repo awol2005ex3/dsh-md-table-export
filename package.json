@@ -1,18 +1,28 @@
 {
   "name": "dsh-md-table-export",
   "version": "1.0.0",
-  "description": "DeepSeek Harness (dsh) plugin: export Markdown pipe-tables found in conversation content into Excel (.xlsx). Ships a host tool plus a Web-Client userscript.",
+  "description": "DeepSeek Harness (dsh) plugin: export Markdown pipe-tables found in conversation content into Excel (.xlsx). Ships a host tool plus a Web client bundle.",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/client.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
   "license": "MIT",
   "files": [
     "lib",
-    "userscript",
     "README.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node scripts/wrap-client.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -44,6 +54,12 @@
     "xlsx": "^0.18.5"
   },
   "dsh": {
-    "bundle": "headless"
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
   }
 }
