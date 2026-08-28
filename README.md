@@ -2,6 +2,8 @@
 
 DeepSeek Harness（`dsh`）插件：把对话内容里的 **Markdown 表格** 一键导出为 **Excel（`.xlsx`）**。
 
+![截图](docs/截图.png)
+
 > 需求来源：对 deepseek-harness web 的对话内容中 markdown table 格式内容增加 Excel 导出功能。
 
 本仓库同时交付两部分，覆盖“模型侧”和“界面侧”两条路径：
