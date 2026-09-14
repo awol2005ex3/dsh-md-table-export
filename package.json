@@ -2,6 +2,10 @@
   "name": "dsh-md-table-export",
   "version": "1.0.0",
   "description": "DeepSeek Harness (dsh) plugin: export Markdown pipe-tables found in conversation content into Excel (.xlsx). Ships a host tool plus a Web client bundle.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awol2005ex3/dsh-md-table-export.git"
+  },
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,13 +20,17 @@
     },
     "./package.json": "./package.json"
   },
-  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "Apache-2.0",
   "files": [
     "lib",
     "README.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/wrap-client.mjs",
+    "prepare": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
