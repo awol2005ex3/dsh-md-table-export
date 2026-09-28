@@ -9,13 +9,13 @@ export interface Config {
     defaultOutputDir?: string;
     sheetPerTable?: boolean;
 }
-export declare const Config: Schema<Schemastery.ObjectS<{
-    defaultOutputDir: Schema<string, string>;
-    sheetPerTable: Schema<boolean, boolean>;
-}>, Schemastery.ObjectT<{
-    defaultOutputDir: Schema<string, string>;
-    sheetPerTable: Schema<boolean, boolean>;
-}>>;
+export declare const Config: Schema<Schemastery.ObjectS<NoInfer<{
+    defaultOutputDir: Schema<string, string, "plain">;
+    sheetPerTable: Schema<boolean, boolean, "defined">;
+}>>, Schemastery.ObjectT<NoInfer<{
+    defaultOutputDir: Schema<string, string, "plain">;
+    sheetPerTable: Schema<boolean, boolean, "defined">;
+}>>, "plain">;
 /**
  * Plugin entry point (named export, no default export).
  * Registers the Markdown-table → Excel tool as a reversible effect so HMR and
